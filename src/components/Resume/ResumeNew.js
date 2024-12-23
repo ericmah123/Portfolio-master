@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/Resume Newest.pdf";
+import resumeImage from "../../Assets/ResumeImage.png"; // Your resume image file
 import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import pdf from "../../Assets/../Assets/Resume Newest.pdf"; // Your resume PDF file
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
-
   return (
     <div>
       <Container fluid className="resume-section">
         <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
+        <Row style={{ justifyContent: "center", position: "relative", marginBottom: "20px" }}>
           <Button
             variant="primary"
             href={pdf}
@@ -31,22 +23,27 @@ function ResumeNew() {
           </Button>
         </Row>
 
-        <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
-        </Row>
-
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
+        {/* Display Resume Image */}
+        <Row
+          className="resume"
+          style={{
+            justifyContent: "center",
+            marginBottom: "20px",
+            overflow: "hidden", // Prevents overflow if the image is large
+          }}
+        >
+          <img
+            src={resumeImage}
+            alt="Resume"
+            style={{
+              width: "80%", // Adjusted width for better scaling
+              height: "auto",
+              maxWidth: "900px", // Prevents the image from being too wide
+              border: "1px solid #ddd",
+              borderRadius: "5px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Adds a subtle shadow for aesthetics
+            }}
+          />
         </Row>
       </Container>
     </div>

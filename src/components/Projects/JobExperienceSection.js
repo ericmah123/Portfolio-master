@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import Fade from "react-reveal/Fade";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 // Job Experience Card Component
@@ -8,7 +8,11 @@ function JobExperienceCard({ title, location, position, duties, date }) {
     const [isExpanded, setIsExpanded] = useState(false); // Track expand/collapse state
   
     return (
-      <Fade bottom cascade>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
         <Card
           className={`job-experience-card ${isExpanded ? "expanded" : ""}`}
           onClick={() => setIsExpanded(!isExpanded)} // Toggle expanded state on click
@@ -47,7 +51,11 @@ function JobExperienceCard({ title, location, position, duties, date }) {
                 fontStyle: "italic",
               }}
             >
-              {position} - {location}
+                <span style={{ color: "CCCCCC", fontWeight: "bold" }}>{position}</span>
+                <span style={{ color: "#CCCCCC" }}>{' - '}</span>
+
+               <span style={{ color: "#CCCCCC" }}>{location}</span>
+              
             </Card.Subtitle>
   
             {/* Date */}
@@ -72,7 +80,8 @@ function JobExperienceCard({ title, location, position, duties, date }) {
                   marginBottom: "10px",
                 }}
               >
-                <i className="bi bi-arrow-down"></i> Click to see job duties
+                <span style={{ color: "#CCCCCC" }}>{'Click to see job duties'}</span>
+
               </Card.Text>
             )}
             {isExpanded && (
@@ -85,7 +94,8 @@ function JobExperienceCard({ title, location, position, duties, date }) {
                   marginBottom: "10px",
                 }}
               >
-                <i className="bi bi-arrow-up"></i> Click to fold job duties
+              <span style={{ color: "#CCCCCC" }}>{'Click to close job duties'}</span>
+
               </Card.Text>
             )}
   
@@ -145,7 +155,7 @@ function JobExperienceCard({ title, location, position, duties, date }) {
             </div>
           </Card.Body>
         </Card>
-      </Fade>
+        </motion.div>
     );
   }
 
@@ -324,7 +334,11 @@ function JobExperienceSection() {
       }}
     >
       {/* Section Heading */}
-      <Fade top when={inView}>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+      >
         <h1
           className="job-experience-heading"
           style={{
@@ -337,7 +351,7 @@ function JobExperienceSection() {
         >
           My <strong className="purple">Experience</strong>
         </h1>
-      </Fade>
+      </motion.div>
 
       {/* Job Cards */}
       <Row style={{ justifyContent: "center" }}>

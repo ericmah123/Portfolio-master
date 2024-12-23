@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/chill-guy-chill.svg";
-import Tilt from "react-parallax-tilt";
 
 function Home2() {
   return (
@@ -62,9 +61,7 @@ function Home2() {
             md={4}
             className="myAvtar d-flex justify-content-center align-items-center"
           >
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
+            <img src={myImg} alt="avatar" className="img-fluid" />
           </Col>
         </Row>
       </Container>
