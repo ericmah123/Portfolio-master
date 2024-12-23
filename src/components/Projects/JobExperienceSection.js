@@ -51,7 +51,7 @@ function JobExperienceCard({ title, location, position, duties, date }) {
                 fontStyle: "italic",
               }}
             >
-                <span style={{ color: "CCCCCC", fontWeight: "bold" }}>{position}</span>
+                <span style={{ color: "#CCCCCC", fontWeight: "bold" }}>{position}</span>
                 <span style={{ color: "#CCCCCC" }}>{' - '}</span>
 
                <span style={{ color: "#CCCCCC" }}>{location}</span>
