@@ -1,163 +1,151 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 // Job Experience Card Component
 function JobExperienceCard({ title, location, position, duties, date }) {
-    const [isExpanded, setIsExpanded] = useState(false); // Track expand/collapse state
-  
-    return (
+  const [isExpanded, setIsExpanded] = useState(false); // Track expand/collapse state
+  const contentRef = useRef(null); // Ref to measure content height
+
+  return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-        <Card
-          className={`job-experience-card ${isExpanded ? "expanded" : ""}`}
-          onClick={() => setIsExpanded(!isExpanded)} // Toggle expanded state on click
-          style={{
-            backgroundColor: "transparent",
-            color: "white",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.2)",
-            borderRadius: "12px",
-            marginBottom: "25px",
-            padding: "20px",
-            cursor: "pointer",
-            transition: "all 0.3s ease-in-out",
-            minHeight: "200px", // Prevent jumping
-          }}
-        >
-          <Card.Body>
-            {/* Title */}
-            <Card.Title
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                fontSize: "1.5rem",
-                marginBottom: "10px",
-              }}
-            >
-              <strong className="purple">{title}</strong>
-            </Card.Title>
-  
-            {/* Subtitle */}
-            <Card.Subtitle
-              className="mb-3 text-muted"
-              style={{
-                textAlign: "center",
-                fontSize: "1rem",
-                fontStyle: "italic",
-              }}
-            >
-                <span style={{ color: "#CCCCCC", fontWeight: "bold" }}>{position}</span>
-                <span style={{ color: "#CCCCCC" }}>{' - '}</span>
-
-               <span style={{ color: "#CCCCCC" }}>{location}</span>
-              
-            </Card.Subtitle>
-  
-            {/* Date */}
-            <Card.Text
-              style={{
-                textAlign: "left",
-                fontSize: "1rem",
-                marginBottom: "10px",
-              }}
-            >
-              <strong style={{ fontWeight: "600" }}>Date:</strong> {date}
-            </Card.Text>
-  
-            {/* Click to see job duties */}
-            {!isExpanded && (
-              <Card.Text
-                className="text-muted"
-                style={{
-                  fontSize: "0.9rem",
-                  textAlign: "left",
-                  fontStyle: "italic",
-                  marginBottom: "10px",
-                }}
-              >
-                <span style={{ color: "#CCCCCC" }}>{'Click to see job duties'}</span>
-
-              </Card.Text>
-            )}
-            {isExpanded && (
-              <Card.Text
-                className="text-muted"
-                style={{
-                  fontSize: "0.9rem",
-                  textAlign: "left",
-                  fontStyle: "italic",
-                  marginBottom: "10px",
-                }}
-              >
-              <span style={{ color: "#CCCCCC" }}>{'Click to close job duties'}</span>
-
-              </Card.Text>
-            )}
-  
-            {/* Expandable Job Duties */}
-                        <div
+      <Card
+        className={`job-experience-card ${isExpanded ? "expanded" : ""}`}
+        onClick={() => setIsExpanded(!isExpanded)} // Toggle expanded state on click
+        style={{
+          backgroundColor: "transparent",
+          color: "white",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
+          boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.2)",
+          borderRadius: "12px",
+          marginBottom: "25px",
+          padding: "20px",
+          cursor: "pointer",
+          transition: "all 0.3s ease-in-out",
+        }}
+      >
+        <Card.Body>
+          {/* Title */}
+          <Card.Title
             style={{
-                maxHeight: isExpanded ? "1000px" : "0", // Set max-height for smooth transition
-                overflow: "hidden", // Prevent content overflow
-                transition: "max-height 0.5s ease-in-out", // Smooth expand/collapse
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+              marginBottom: "10px",
             }}
-            >
+          >
+            <strong className="purple">{title}</strong>
+          </Card.Title>
+
+          {/* Subtitle */}
+          <Card.Subtitle
+            className="mb-3 text-muted"
+            style={{
+              textAlign: "center",
+              fontSize: "1rem",
+              fontStyle: "italic",
+            }}
+          >
+            <span style={{ color: "#CCCCCC", fontWeight: "bold" }}>
+              {position}
+            </span>
+            <span style={{ color: "#CCCCCC" }}>{" - "}</span>
+            <span style={{ color: "#CCCCCC" }}>{location}</span>
+          </Card.Subtitle>
+
+          {/* Date */}
+          <Card.Text
+            style={{
+              textAlign: "left",
+              fontSize: "1rem",
+              marginBottom: "10px",
+            }}
+          >
+            <strong style={{ fontWeight: "600" }}>Date:</strong> {date}
+          </Card.Text>
+
+          {/* Click to see job duties */}
+          <Card.Text
+            className="text-muted"
+            style={{
+              fontSize: "0.9rem",
+              textAlign: "left",
+              fontStyle: "italic",
+              marginBottom: "10px",
+            }}
+          >
+            <span style={{ color: "#CCCCCC" }}>
+              {isExpanded ? "Click to close job duties" : "Click to see job duties"}
+            </span>
+          </Card.Text>
+
+          {/* Expandable Job Duties */}
+          <div
+            ref={contentRef}
+            style={{
+              height: isExpanded
+                ? `${contentRef.current?.scrollHeight}px`
+                : "0px", // Dynamically calculate height
+              overflow: "hidden", // Hide content when collapsed
+              transition: "height 0.5s ease-in-out", // Smooth expand/collapse
+            }}
+          >
             <Card.Text
-                style={{
+              style={{
                 textAlign: "left",
                 fontSize: "1rem",
                 marginTop: "15px",
-                }}
+              }}
             >
-                <strong style={{ fontWeight: "600" }}>Job Duties:</strong>
-                <ul
+              <strong style={{ fontWeight: "600" }}>Job Duties:</strong>
+              <ul
                 className="list-group list-group-flush mt-3"
                 style={{
-                    listStyleType: "none",
-                    paddingLeft: "0",
+                  listStyleType: "none",
+                  paddingLeft: "0",
                 }}
-                >
+              >
                 {duties.map((duty, index) => (
-                    <li
+                  <li
                     className="list-group-item d-flex align-items-start bg-transparent text-white"
                     key={index}
                     style={{
-                        padding: "12px",
-                        fontSize: "0.95rem",
-                        lineHeight: "1.6",
-                        background:
+                      padding: "12px",
+                      fontSize: "0.95rem",
+                      lineHeight: "1.6",
+                      background:
                         index % 2 === 0
-                            ? "rgba(255, 255, 255, 0.05)"
-                            : "transparent",
-                        borderRadius: "8px",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        marginBottom: "10px",
+                          ? "rgba(255, 255, 255, 0.05)"
+                          : "transparent",
+                      borderRadius: "8px",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      marginBottom: "10px",
                     }}
-                    >
+                  >
                     <i
-                        className="bi bi-check-circle-fill"
-                        style={{
+                      className="bi bi-check-circle-fill"
+                      style={{
                         marginRight: "12px",
                         color: "#6f42c1",
                         fontSize: "1.2rem",
-                        }}
+                      }}
                     ></i>
                     <span>{duty}</span>
-                    </li>
+                  </li>
                 ))}
-                </ul>
+              </ul>
             </Card.Text>
-            </div>
-          </Card.Body>
-        </Card>
-        </motion.div>
-    );
-  }
+          </div>
+        </Card.Body>
+      </Card>
+    </motion.div>
+  );
+}
 
 // Job Experience Section Component
 function JobExperienceSection() {
