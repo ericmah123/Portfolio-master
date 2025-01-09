@@ -256,7 +256,7 @@ function JobExperienceSection() {
       date: "May 2023 - September 2023",
     },
     {
-      title: "Sales Manager",
+      title: "Student Sealing",
       location: "Canada, Calgary, AB",
       position: "Sales Manager",
       duties: [
