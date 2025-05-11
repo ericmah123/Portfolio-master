@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.97418ea7.css",
-    "main.js": "/static/js/main.cd6222f0.js",
+    "main.css": "/static/css/main.a844fc44.css",
+    "main.js": "/static/js/main.fc20afaf.js",
     "static/js/453.ace21015.chunk.js": "/static/js/453.ace21015.chunk.js",
     "static/media/mma.png": "/static/media/mma.77ca8d3818999bc5faa6.png",
-    "static/media/ResumeImage.png": "/static/media/ResumeImage.0516ae00ba0f3c4c9ec9.png",
     "static/media/emploi.png": "/static/media/emploi.b88da6c9b790743eb9c4.png",
+    "static/media/ResumeImage.png": "/static/media/ResumeImage.18c4eaec27569b5f013d.png",
     "static/media/quick.png": "/static/media/quick.5170ab56f45f3c85ec9f.png",
-    "static/media/Resume Newest.pdf": "/static/media/Resume Newest.3abb45daa43bb12911c0.pdf",
-    "static/media/home-main.svg": "/static/media/home-main.541f8179af8209ce03ccf2178fe62dbf.svg",
+    "static/media/home-main.svg": "/static/media/home-main.359935c39288e92d4dba5c9f2445b91d.svg",
     "static/media/about.png": "/static/media/about.aee0f771fbfc1e7b8fa8.png",
-    "static/media/chill-guy-chill.svg": "/static/media/chill-guy-chill.82d7d4080134d8e18a48a86dab04fa2d.svg",
+    "static/media/chill-guy-chill.svg": "/static/media/chill-guy-chill.f32fe3ef65e7559acd65480881ef318f.svg",
+    "static/media/Resume Newest.pdf": "/static/media/Resume Newest.305f78a7fd2d46f349c3.pdf",
     "static/media/fit.png": "/static/media/fit.ae25a75c1b8c415483f1.png",
     "static/media/rizztagram.png": "/static/media/rizztagram.4cc454feb6a53c66728f.png",
     "static/media/home-bg.jpg": "/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
-    "static/media/pre.svg": "/static/media/pre.d4812f51c8c80976eaab.svg",
+    "static/media/pre.svg": "/static/media/pre.4410c5baaa673cc131da.svg",
     "index.html": "/index.html",
-    "main.97418ea7.css.map": "/static/css/main.97418ea7.css.map",
-    "main.cd6222f0.js.map": "/static/js/main.cd6222f0.js.map",
+    "main.a844fc44.css.map": "/static/css/main.a844fc44.css.map",
+    "main.fc20afaf.js.map": "/static/js/main.fc20afaf.js.map",
     "453.ace21015.chunk.js.map": "/static/js/453.ace21015.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97418ea7.css",
-    "static/js/main.cd6222f0.js"
+    "static/css/main.a844fc44.css",
+    "static/js/main.fc20afaf.js"
   ]
 }

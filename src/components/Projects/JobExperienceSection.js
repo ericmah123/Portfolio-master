@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
