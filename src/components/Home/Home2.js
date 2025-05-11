@@ -6,55 +6,51 @@ function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row className="align-items-center"> {/* Align the items vertically */}
+        <Row className="align-items-center">
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
+              I love taking messy, complicated data and turning it into{" "}
+              <b className="purple">clear, actionable insights</b> that help businesses work smarter.
               <br />
               <br />
-          
-           
-              I have developed a key interest in{" "}
-              <b className="purple">machine learning</b>,{" "}
-              <b className="purple">web development</b>,{" "}
-              <b className="purple">data analysis</b>, and working to{" "}
-              <b className="purple">sell software solutions.</b>
+              My main focus is using{" "}
+              <b className="purple">data analysis</b> and{" "}
+              <b className="purple">software development</b> to solve real-world problems. 
+              Whether it is helping a team spot opportunities they could not see before, 
+              streamlining clunky workflows, or building tools that make everyday tasks easier, 
+              I am excited about creating{" "}
+              <b className="purple">practical solutions</b> that actually make a difference.
               <br />
               <br />
-              My passion lies in exploring how cutting-edge technologies can
-              solve real-world problems. In the field of machine learning, I am
-              particularly drawn to developing intelligent systems that can
-              process large datasets and provide meaningful insights. I enjoy
-              experimenting with algorithms and building predictive models that
-              deliver impactful results.
+              Most of my experience is rooted in data analysis, where I work with{" "}
+              <b className="purple">Python</b>,{" "}
+              <b className="purple">SQL</b>, and visualization libraries to dig into complex datasets, 
+              identify trends, and uncover opportunities for better decision-making. I enjoy the process 
+              of not just analyzing data but{" "}
+              <b className="purple">telling the story behind it</b>, connecting the dots so people 
+              can act on what the data is really saying.
               <br />
               <br />
-              In web development, I focus on creating scalable, user-friendly
-              applications using <b className="purple">modern frameworks</b>{" "}
-              like <b className="purple">React.js</b> and{" "}
-              <b className="purple">Next.js</b>, as well as robust backend
-              technologies such as <b className="purple">Node.js</b>. I
-              prioritize clean, maintainable code and strive to ensure
-              exceptional user experiences.
+              On the technical side, I enjoy web development. I build clean, user-friendly applications using 
+              frameworks such as{" "}
+              <b className="purple">React.js</b> and{" "}
+              <b className="purple">Next.js</b>, supported by backend development with{" "}
+              <b className="purple">Node.js</b>. I always aim to keep the experience simple and intuitive, 
+              allowing people to focus on their tasks without being slowed down by the technology.
               <br />
               <br />
-              My work in data analysis revolves around transforming raw data
-              into actionable insights that drive informed decision-making. I
-              enjoy using tools like Python, SQL, and visualization libraries to
-              uncover trends, patterns, and opportunities in complex datasets.
+              Recently, I have been exploring{" "}
+              <b className="purple">machine learning</b> to understand how intelligent systems 
+              can add another layer of insight to data-driven solutions and support{" "}
+              <b className="purple">predictive decision-making</b>.
               <br />
               <br />
-              Additionally, I am passionate about bridging the gap between
-              technical expertise and business needs by working to{" "}
-              <b className="purple">
-                develop and sell innovative software solutions.
-              </b>{" "}
-              My goal is to deliver tools that streamline processes, solve pain
-              points, and add tangible value for clients and users alike.
+              At the end of the day, I am driven by the idea of using{" "}
+              <b className="purple">technology to make work a little easier</b>, a little smarter, 
+              and a lot more impactful.
             </p>
           </Col>
           <Col
